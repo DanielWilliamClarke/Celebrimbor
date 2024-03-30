@@ -31,7 +31,7 @@ fn greet_people(
 ) {
     if timer.0.tick(time.delta()).just_finished() {
         for name in &query {
-            println!("hello {}!", name.0);
+            println!("hello there! {}!", name.0);
         }
     }
 }
