@@ -1,7 +1,7 @@
 use bevy::prelude::*;
+use crate::player_movement::{Player, PlayerMovement, PlayerMovementPlugin};
 
-// #[derive(Component)]
-// struct Person;
+pub mod player_movement;
 
 fn setup (
     mut commands: Commands,
@@ -13,7 +13,13 @@ fn setup (
     let texture_atlas_layout = texture_atlas_layouts.add(layout);
 
     commands.spawn(Camera2dBundle::default());
-    commands.spawn(
+    commands.spawn((
+        Player { mass: 2.0 },
+        PlayerMovement {
+            speed: 200.0,
+            friction: 0.5,
+            ..default()
+        },
         SpriteSheetBundle {
             texture,
             atlas: TextureAtlas {
@@ -22,20 +28,13 @@ fn setup (
             },
             ..default()
         }
-    );
-}
-
-pub struct PlayerPlugin;
-
-impl Plugin for PlayerPlugin {
-    fn build(&self, app: &mut App) {
-        app
-            .add_systems(Startup, setup);
-    }
+    ));
 }
 
 fn main() {
     App::new()
-        .add_plugins((DefaultPlugins.set(ImagePlugin::default_nearest()), PlayerPlugin))
+        .add_plugins(DefaultPlugins.set(ImagePlugin::default_nearest()))
+        .add_plugins(PlayerMovementPlugin)
+        .add_systems(Startup, setup)
         .run();
 }
