@@ -56,7 +56,7 @@ pub fn move_player (
     input: Res<PlayerMovementInput>,
     mut query: Query<(&Player, &mut PlayerMovement, &mut Transform)>,
 ) {
-    for(player, mut player_movement, mut transform) in query.iter_mut() {
+    for (player, mut player_movement, mut transform) in query.iter_mut() {
         let damping = -player_movement.velocity * player_movement.friction;
         let input_force = input.movement * player_movement.speed;
         let force = input_force + damping;
