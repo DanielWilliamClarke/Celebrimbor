@@ -13,6 +13,7 @@ jobs:
           toolchain: stable
       - name: Install Dependencies
 #        https://github.com/ggez/ggez/issues/100
+#        https://stackoverflow.com/questions/73693257/how-to-fix-could-not-find-system-library-libudev-when-installing-cargo-flash
         run: sudo apt-get install -y libasound2-dev libudev-dev
       - uses: actions-rs/cargo@v1
         with:
