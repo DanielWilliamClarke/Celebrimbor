@@ -18,7 +18,7 @@ fn setup(
     commands.spawn((
         Player { mass: 2.0 },
         PlayerMovement {
-            speed: 200.0,
+            speed: 300.0,
             friction: 0.5,
             ..default()
         },

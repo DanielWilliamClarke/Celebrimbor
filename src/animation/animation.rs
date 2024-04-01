@@ -43,6 +43,11 @@ pub fn animate_sprite<T>(
         T: std::fmt::Display + Clone + Hash + Eq + Send + Sync + 'static
 {
     for (mut texture, mut animator, mut state) in query.iter_mut() {
+        // if animation changes, restart animation frames
+        if &animator.last_animation != &animator.current_animation {
+            state.reset();
+        }
+
         let animation = &animator.animation_bank.bank[&animator.current_animation];
 
         // Update the state

@@ -38,14 +38,14 @@ pub fn create_animation_bank() -> AnimationBank<PlayerAnimations> {
         UP,
         Animation(benimator::Animation::from_indices(
             3..=5,
-            FrameRate::from_fps(1.2),
+            FrameRate::from_fps(10.0),
         ).once()),
     );
     bank.insert(
         DOWN,
         Animation(benimator::Animation::from_indices(
             0..=2,
-            FrameRate::from_fps(1.2),
+            FrameRate::from_fps(10.0),
         ).once()),
     );
 
