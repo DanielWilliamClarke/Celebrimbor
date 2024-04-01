@@ -1,5 +1,5 @@
 use bevy::prelude::*;
-
+use crate::player_movement::{Player, PlayerMovement, PlayerMovementPlugin};
 use crate::animation::{AnimationState, Animator};
 use crate::player::{Player, PlayerAnimations, PlayerMovement, PlayerMovementPlugin};
 
