@@ -1,6 +1,6 @@
 use bevy::prelude::*;
 use crate::animation::{AnimationState, Animator};
-use crate::player::{Player, PlayerAnimations, PlayerMovement, PlayerMovementPlugin};
+use crate::player::{Player, PlayerAnimations, PlayerInput, PlayerMovement, PlayerMovementPlugin};
 
 mod player;
 mod animation;
@@ -17,6 +17,7 @@ fn setup(
     commands.spawn(Camera2dBundle::default());
     commands.spawn((
         Player { mass: 2.0 },
+        PlayerInput::default(),
         PlayerMovement {
             speed: 300.0,
             friction: 0.5,
